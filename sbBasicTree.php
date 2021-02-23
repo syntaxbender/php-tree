@@ -6,15 +6,15 @@ class sbBasicTree{
 		$this->arr=$arr;
 		foreach($this->arr as $item){
 			$parents = $this->getParents($item["CatID"]); // önce parentlere doğru çıkıyorum sonra onları terse çeviriyorum.
-			$pointer = &$this->newarr;
+			$ref = &$this->newarr;
 			$level = 0;
 			foreach ($parents as $parent){ // sonra bi daha parentlerden aşağı inip vakit kaybediyorum mükemmel xd
 				$level++;
-				$pointer = &$pointer[$parent]["SubCats"];
+				$ref = &$ref[$parent]["SubCats"];
 			}
-			$pointer['CatID'] = $item['CatID'];
-			$pointer['Title'] = $item['Title'];
-			$pointer['Level'] = $level;
+			$ref['CatID'] = $item['CatID'];
+			$ref['Title'] = $item['Title'];
+			$ref['Level'] = $level;
 		}
 	}
 	function getParents($id){

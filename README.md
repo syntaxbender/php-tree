@@ -2,7 +2,6 @@
 
 This script created for db response list array to multidimension tree array.
 
-
 ## Methods
 
 getTreeArray, it will return tree array  
